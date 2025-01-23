@@ -12,7 +12,7 @@ def ping_ip(ip):
             ["ping", "-c", "1", "-W", "1", str(ip)],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            text=True
+            universal_newlines=True  # Use this for compatibility with Python <3.7
         )
         return result.returncode == 0
     except Exception as e:
